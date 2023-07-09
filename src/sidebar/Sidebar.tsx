@@ -1,27 +1,39 @@
-import React from "react";
-import { Data, Board, Column } from "../types/interfaces";
+import React from 'react';
+import { Data, Board, Column } from '../types/interfaces';
+import Select from 'react-select';
 
 interface IProps {
   setCurrentBoard(object: Board): void;
   allData: any;
 }
+
 const Sidebar = (props: IProps) => {
-  const {allData, setCurrentBoard} = props;
-  const handleBoardClick = (board: Board): any => {
-    console.log('ass')
+  const { allData, setCurrentBoard } = props;
+  const handleBoardClick = (choice: any): any => {
+    console.log('ass');
     const chosenBoard = allData.boards.find((selected: Board) => {
-      return board.name === selected.name
-    })
+      return choice.value === selected.name;
+    });
     setCurrentBoard(chosenBoard);
-  }
-console.log('ALL SIDECARE', allData)
+  };
+
+  const boardOptions: Object[] = [];
+
   return (
-  <nav>
-   {allData.boards.map((board: Board) => {
+    <nav>
+      {/* {allData.boards.map((board: Board) => {
     return <button onClick={() => handleBoardClick(board)}>{board.name}</button>
-   })}
-  </nav>
-  )
-}
+   })} */}
+      {allData?.boards.map((board: Board) => {
+        boardOptions.push({ value: board.name, label: board.name });
+      })}
+
+      <Select
+        options={boardOptions}
+        onChange={(choice) => handleBoardClick(choice)}
+      />
+    </nav>
+  );
+};
 
 export default Sidebar;
