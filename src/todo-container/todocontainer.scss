@@ -1,0 +1,14 @@
+.toDoContainer {
+  border: solid red 1px;
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+
+  &-column {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid purple 1px;
+  }
+}

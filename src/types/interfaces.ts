@@ -1,27 +1,27 @@
 import { data } from "./data";
 
-interface Subtask {
+export interface Subtask {
   title: string;
   isCompleted: boolean;
 }
 
-interface Task {
+export interface Task {
   title: string;
   description: string;
   status: string;
   subtasks: Subtask[];
 }
 
-interface Column {
+export interface Column {
   name: string;
   tasks: Task[];
 }
 
-interface Board {
+export interface Board {
   name: string;
   columns: Column[];
 }
 
-interface Data {
-  boards: Board[];
+export interface Data {
+  boards: Board[] | undefined;
 }
