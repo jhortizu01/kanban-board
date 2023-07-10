@@ -7,21 +7,18 @@ interface IProps {
 
 export const ToDoContainer = (props: IProps) => {
   const { currentBoard } = props;
-  console.log('FROM TODO', currentBoard)
+  console.log('FROM TODO', currentBoard);
 
   return (
-  <div className='toDoContainer'>
-    {currentBoard?.columns.map((column: Column) => {
-      return (
+    <div className='toDoContainer'>
+      {currentBoard?.columns.map((column: Column) => {
+        return (
           <div className='toDoContainer-column'>
-          <h2>{column.name}</h2>
-          <SingleColumn column={column}/>
+            <h2>{column.name}</h2>
+            <SingleColumn column={column} />
           </div>
-          
-         
-      
-      )
-    })}
-  </div>
-  )
+        );
+      })}
+    </div>
+  );
 };
